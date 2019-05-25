@@ -10,7 +10,7 @@ known_face_encodings = []
 # 伪代码
 for image in sql
 # 添加数据
-known_face_encodings = known_face_encodings + [face_recognition.face_encodings(face_recognition.load_image_file( image )[0] ]
+known_face_encodings = known_face_encodings + [face_recognition.face_encodings(face_recognition.load_image_file( image ))[0] ]
 face_locations = []
 face_encodings = []
 face_names = []
