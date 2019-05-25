@@ -5,14 +5,10 @@ camera = picamera.PiCamera()
 camera.resolution = (320, 240)
 output = np.empty((240, 320, 3), dtype=np.uint8)
 
-
-
-
 # load files
 print("Loading known face image")
 
-
-# pseudo code
+# 伪代码
 known_face_encodings = []
 # sql
 for image in sql
