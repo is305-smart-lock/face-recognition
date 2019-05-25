@@ -8,11 +8,11 @@ output = np.empty((240, 320, 3), dtype=np.uint8)
 # load files
 print("Loading known face image")
 
-# 伪代码
+# 初始化已知人脸数据
 known_face_encodings = []
-# sql
+# 伪代码
 for image in sql
-
+# 添加数据
 known_face_encodings = known_face_encodings + [face_recognition.face_encodings(face_recognition.load_image_file( image )[0] ]
 
 
