@@ -1,16 +1,18 @@
 import face_recognition
 import picamera
 import numpy as np
+import requests
+import json
 camera = picamera.PiCamera()
 camera.resolution = (320, 240)
 output = np.empty((240, 320, 3), dtype=np.uint8)
 print("Loading known face image")
 # 初始化已知人脸数据
-known_face_encodings = []
-# 伪代码
-for image in sql
-# 添加数据
-known_face_encodings = known_face_encodings + [face_recognition.face_encodings(face_recognition.load_image_file( image ))[0] ]
+res = requests.get("https://lock.dy.tongqu.me/lock-terminal/faces?hid=89d681f2-1570-47a6-92aa-129772078b39")
+
+data = json.loads(res.content.decode('utf-8'))
+known_face_encodings = [x["landmarks"] for x in data]
+known_face_names = [x["user"] for x in data]
 face_locations = []
 face_encodings = []
 face_names = []
@@ -26,5 +28,6 @@ while True:
         matches = face_recognition.compare_faces(known_face_encodings, face_encoding)
         face_distances = face_recognition.face_distance(known_face_encodings, face_encoding)
         best_match_index = np.argmin(face_distances)
-        if matches[best_match_index]: 
-        print("I see someone in sql!")
+        if matches[best_match_index]:
+            name = known_face_names[best_match_index]
+        print("I see someone named {}!".format(name))
