@@ -7,4 +7,4 @@
  
  [这个程序](https://github.com/is305-smart-lock/face-recognition/blob/master/pi_folder.py)实现了读取并识别本地数据库（文件夹）内目标并识别   
    
-[这个程序](https://github.com/is305-smart-lock/face-recognition/blob/master/pi_sql.py)是人脸识别模块连接数据库的伪代码  
+[这个程序](https://github.com/is305-smart-lock/face-recognition/blob/master/pi_sql.py)实现了从远程数据库拉取数据
