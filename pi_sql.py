@@ -25,7 +25,8 @@ while True:
     face_encodings = face_recognition.face_encodings(output, face_locations)
     # 比对
     for face_encoding in face_encodings:  
-        matches = face_recognition.compare_faces(known_face_encodings, face_encoding)
+        # 调整阈值为0.55，阈值越大越宽松
+        matches = face_recognition.compare_faces(known_face_encodings, face_encoding,0.55)
         face_distances = face_recognition.face_distance(known_face_encodings, face_encoding)
         best_match_index = np.argmin(face_distances)
         if matches[best_match_index]:
